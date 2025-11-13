@@ -1,0 +1,19 @@
+---
+
+- name: Creating playook using the vars_files
+  hosts: all
+  become: true
+  vars:
+    package_name: sshd
+    service_name: sshd
+
+  tasks:
+  - name: install sshd packages on server
+  yum:
+    name: sshd
+    state: present
+
+  -name: start the sshd service on server
+  service:
+    name: sshd
+    state: started
