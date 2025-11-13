@@ -1,0 +1,20 @@
+---
+
+- name: Installation package using vars
+  hosts: all
+  become: true
+  vars:
+    package_name: sshd
+    service_name: sshd
+
+  tasks: 
+    - name: install package
+      yum:
+        name: "{{ package_name }}"
+        state: present
+
+    - name: start the service
+      service:
+        name: "{{ service_name }}"
+        state: started
+    
