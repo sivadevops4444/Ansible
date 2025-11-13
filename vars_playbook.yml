@@ -9,11 +9,11 @@
 
   tasks:
   - name: install sshd packages on server
-  yum:
-    name: sshd
-    state: present
+    yum:
+      name: sshd
+      state: present
 
-  -name: start the sshd service on server
-  service:
-    name: sshd
-    state: started
+  - name: start the sshd service on server
+    service:
+      name: sshd
+      state: started
