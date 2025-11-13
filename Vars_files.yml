@@ -1,0 +1,19 @@
+---
+
+- name: Vars from the file  
+  hosts: all
+  become: yes
+  vars_files
+  - vars_files.yml
+
+  tasks:
+  - name: Install packages
+  yum:
+   name: sshd
+   state: present
+  
+  -name: Start the SSHD Service
+  service:
+   name: sshd
+   state: started
+   
