@@ -1,0 +1,19 @@
+---
+- name: using vars creating playbook 
+  hosts: all
+  become: true
+  vars:
+    package_name: sshd
+    service_name: sshd
+
+  tasks:
+    -name: install the sshd package_name
+    yum:
+      name: "{{ package_name }}"
+      state: present
+
+    -name: start the sshd service on servers
+    service:
+      name: "{{ service_name }}"
+      enabled: yes
+      
