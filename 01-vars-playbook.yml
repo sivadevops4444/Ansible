@@ -1,0 +1,14 @@
+---
+
+- name: install packages using variables
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install packages
+    ansible.builtin.package:
+     name: "{{ item}}"
+    vars:
+    - tree
+    - zip
+    - unzip
